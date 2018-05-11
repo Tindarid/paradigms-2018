@@ -1,4 +1,7 @@
-package jstest;
+package jstest.object;
+
+import jstest.ArithmeticTests;
+import jstest.Language;
 
 /**
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)

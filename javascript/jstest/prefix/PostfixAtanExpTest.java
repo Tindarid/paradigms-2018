@@ -1,17 +1,22 @@
-package jstest;
+package jstest.prefix;
+
+import jstest.ArithmeticTests;
+import jstest.BaseJavascriptTest;
+import jstest.Language;
+import jstest.object.ObjectExpressionTest;
 
 /**
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  */
 public class PostfixAtanExpTest extends PrefixAtanExpTest {
-    public static final Dialect POSTFIX = dialect(
+    public static final BaseJavascriptTest.Dialect POSTFIX = BaseJavascriptTest.dialect(
             "%s",
             "%s",
             (op, args) -> "(" + String.join(" ", args) + " " + op + ")"
     );
 
     protected PostfixAtanExpTest(final int mode) {
-        super(mode, new Language(ARITHMETIC_OBJECT, POSTFIX, new ArithmeticTests()), "postfix");
+        super(mode, new Language(ObjectExpressionTest.ARITHMETIC_OBJECT, POSTFIX, new ArithmeticTests()), "postfix");
     }
 
     @Override
@@ -43,6 +48,6 @@ public class PostfixAtanExpTest extends PrefixAtanExpTest {
 
     public static void main(final String... args) {
         PrefixAtanExpTest.main(args);
-        new PostfixAtanExpTest(mode(args, PostfixAtanExpTest.class, "easy", "hard")).run();
+        new PostfixAtanExpTest(BaseJavascriptTest.mode(args, PostfixAtanExpTest.class, "easy", "hard")).run();
     }
 }

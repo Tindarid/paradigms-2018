@@ -1,11 +1,12 @@
-package jstest;
+package jstest.object;
 
 import expression.BaseTest;
+import jstest.*;
 
 import java.util.List;
 import java.util.function.BiFunction;
 
-import static jstest.FunctionalExpressionTest.POLISH;
+import static jstest.functional.FunctionalExpressionTest.POLISH;
 
 /**
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)

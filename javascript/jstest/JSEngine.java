@@ -19,7 +19,7 @@ public class JSEngine implements Engine {
     private final String evaluate;
     private String expression;
 
-    protected String toStringMethod = "toString";
+    public String toStringMethod = "toString";
 
     public JSEngine(final String script, final String evaluate) {
         this.evaluate = evaluate;

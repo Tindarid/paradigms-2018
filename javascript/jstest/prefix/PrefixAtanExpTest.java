@@ -1,10 +1,15 @@
-package jstest;
+package jstest.prefix;
+
+import jstest.ArithmeticTests;
+import jstest.BaseJavascriptTest;
+import jstest.Language;
+import jstest.object.ObjectExpressionTest;
 
 /**
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  */
 public class PrefixAtanExpTest extends PrefixParserTest {
-    public static final Dialect ATAN_EXP_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.copy()
+    public static final BaseJavascriptTest.Dialect ATAN_EXP_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.copy()
             .rename("atan", "ArcTan")
             .rename("exp", "Exp");
 

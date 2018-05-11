@@ -1,6 +1,7 @@
-package jstest;
+package jstest.functional;
 
 import expression.BaseTest;
+import jstest.*;
 
 import java.util.function.BiFunction;
 

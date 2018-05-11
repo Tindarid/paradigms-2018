@@ -1,4 +1,6 @@
-package jstest;
+package jstest.functional;
+
+import jstest.Language;
 
 /**
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)

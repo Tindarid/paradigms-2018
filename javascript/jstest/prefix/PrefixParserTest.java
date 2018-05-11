@@ -1,6 +1,8 @@
-package jstest;
+package jstest.prefix;
 
 import expression.BaseTest;
+import jstest.*;
+import jstest.object.ObjectExpressionTest;
 
 /**
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
