@@ -143,7 +143,7 @@
  * [на node.js](javascript/RunJS.node.js): `node RunJS.node.js`
 
 Обратите внимание на реализацию функции `mCurry` в разделе про
-[функции высшего порядка](javascript/examples/functions-hi.js).
+[функции высшего порядка](javascript/examples/1_3_functions-hi.js).
 
 
 ## Домашнее задание 8. Вычисление в различных типах
