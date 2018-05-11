@@ -3,14 +3,20 @@
 [Условия домашних заданий](http://www.kgeorgiy.info/courses/paradigms/homeworks.html)
 
 
-## Домашнее задание 12. Линейная алгебра
+## Домашнее задание 12. Линейная алгебра на Clojure
 
 Модификации
  * *Базовая*
     * Код должен находиться в файле `linear.clj`.
     * Исходный код тестов
-        * [Простой вариант](clojure/cljtest/LinearBinaryTest.java)
-        * [Сложный вариант](clojure/cljtest/LinearNaryTest.java)
+        * [Простой вариант](clojure/cljtest/linear/LinearBinaryTest.java)
+        * [Сложный вариант](clojure/cljtest/linear/LinearNaryTest.java)
+ * *Простая*
+    * Добавьте операции поэлементного сложения (`s+`),
+        вычитания (`s-`) и умножения (`s*`) чисел и
+        векторов любой (в том числе, переменной) формы.
+        Например (`(s+ [[1 2] 3] [[4 5] 6])` должно быть равно `[[5 7] 9]`.
+    * [Исходный код тестов](clojure/cljtest/linear/LinearShapelessTest.java)
 
 
 ## Исходный код к лекциям по Clojure
@@ -40,16 +46,16 @@
 Модификации
  * *Базовая*
     * Код должен находиться в файле `objectExpression.js`.
-    * [Исходный код тестов](javascript/jstest/PrefixParserTest.java)
+    * [Исходный код тестов](javascript/jstest/prefix/PrefixParserTest.java)
         * Запускать c аргументом `easy` или `hard`
  * *Простая*. Дополнительное реализовать поддержку:
     * унарных операций:
         * `ArcTan` (`atan`) — арктангенс, `(atan 2)` примерно равно 1.1;
         * `Exp` (`Exp`) — экспонента, `(exp 3)` примерно равно 20;
-    * [Исходный код тестов](javascript/jstest/PrefixAtanExpTest.java)
+    * [Исходный код тестов](javascript/jstest/prefix/PrefixAtanExpTest.java)
  * *Сложная*. Дополнительное реализовать поддержку выражений в постфиксной записи:
     * `(2 3 +)` равно 5
-    * [Исходный код тестов](javascript/jstest/PostfixAtanExpTest.java)
+    * [Исходный код тестов](javascript/jstest/prefix/PostfixAtanExpTest.java)
 
 
 ## Домашнее задание 10. Объектные выражения на JavaScript
@@ -57,19 +63,19 @@
 Модификации
  * *Базовая*
     * Код должен находиться в файле `objectExpression.js`.
-    * [Исходный код тестов](javascript/jstest/ObjectExpressionTest.java)
+    * [Исходный код тестов](javascript/jstest/object/ObjectExpressionTest.java)
         * Запускать c аргументом `easy`, `hard` или `bonus`.
  * *Модификация*. Дополнительное реализовать поддержку:
     * унарных операций:
         * `Square` (`square`) — возведение в квадрат, `3 square` равно 9;
         * `Sqrt` (`sqrt`) — извлечение квадратного корня из модуля аргумента, `-9 sqrt` равно 3;
-    * [Исходный код тестов](javascript/jstest/ObjectSquareTest.java)
+    * [Исходный код тестов](javascript/jstest/object/ObjectSquareTest.java)
  * *Модификация*. Дополнительное реализовать поддержку:
     * бинарных операций:
         * `Power` (`pow`) — возведение в степень, `2 3 pow` равно 8;
         * `Log` (`log`) — логарифм абсолютного значения аргумента
             по абсолютному значению основания `-2 -8 log` равно 3;
-    * [Исходный код тестов](javascript/jstest/ObjectPowLogTest.java)
+    * [Исходный код тестов](javascript/jstest/object/ObjectPowLogTest.java)
 
 
 ## Домашнее задание 9. Функциональные выражения на JavaScript
@@ -77,7 +83,7 @@
 Модификации
  * *Базовая*
     * Код должен находиться в файле `functionalExpression.js`.
-    * [Исходный код тестов](javascript/jstest/FunctionalExpressionTest.java)
+    * [Исходный код тестов](javascript/jstest/functional/FunctionalExpressionTest.java)
         * Запускать c аргументом `hard` или `easy`;
  * *Простая*. Дополнительное реализовать поддержку:
     * переменных: `y`, `z`;
@@ -85,7 +91,7 @@
         * `negate` — смена знака, `-2 negate` равно 2;
         * `cube` — возведение в куб, `2 cube` равно 8;
         * `cuberoot` — кубический корень, `8 cuberoot` равно 2;
-    * [Исходный код тестов](javascript/jstest/FunctionalCubeTest.java)
+    * [Исходный код тестов](javascript/jstest/functional/FunctionalCubeTest.java)
  * *Сложная*. Дополнительное реализовать поддержку:
     * переменных: `y`, `z`;
     * констант:
@@ -95,11 +101,11 @@
         * `negate` — смена знака, `-2 negate` равно 2;
         * `min3` — минимальный из трех элементов, `3 1 4 min3` равно 1;
         * `max5` — максимальный из пяти элементов, `3 1 4 0 2 max5` равно 4.
-    * [Исходный код тестов](javascript/jstest/FunctionalPieMinMaxTest.java)
+    * [Исходный код тестов](javascript/jstest/functional/FunctionalPieMinMaxTest.java)
         * Запускать c аргументом `hard` или `easy`
 
 
-## Исходный код к лекции по JavaScript
+## Исходный код к лекциям по JavaScript
 
 [Скрипт с примерами](javascript/script.js)
 
