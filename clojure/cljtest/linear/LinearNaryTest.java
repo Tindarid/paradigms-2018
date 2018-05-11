@@ -1,4 +1,4 @@
-package cljtest;
+package cljtest.linear;
 
 import clojure.lang.IPersistentVector;
 import jstest.Engine;

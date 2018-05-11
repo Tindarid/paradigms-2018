@@ -1,5 +1,6 @@
-package cljtest;
+package cljtest.linear;
 
+import cljtest.ClojureScript;
 import clojure.lang.IPersistentVector;
 import expression.BaseTest;
 import jstest.Engine;
