@@ -4,7 +4,7 @@ package jstest;
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  */
 public class PrefixAtanExpTest extends PrefixParserTest {
-    public static final Dialect ATAN_EXP_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.clone()
+    public static final Dialect ATAN_EXP_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.copy()
             .rename("atan", "ArcTan")
             .rename("exp", "Exp");
 

@@ -24,13 +24,31 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
         this.testParsing = testParsing;
     }
 
+    private static boolean safe(final char ch) {
+        return !Character.isLetterOrDigit(ch) && "+-*/.".indexOf(ch) == -1;
+    }
+
+    protected static String addSpaces(final String expression, final Random random) {
+        String spaced = expression;
+        for (int n = StrictMath.min(10, 200 / expression.length()); n > 0;) {
+            final int index = random.nextInt(spaced.length() + 1);
+            final char c = index == 0 ? 0 : spaced.charAt(index - 1);
+            final char nc = index == spaced.length() ? 0 : spaced.charAt(index);
+            if ((safe(c) || safe(nc)) && c != '\'' && nc != '\'' && c != '"' && nc != '"') {
+                spaced = spaced.substring(0, index) + " " + spaced.substring(index);
+                n--;
+            }
+        }
+        return spaced;
+    }
+
     @Override
     protected void test() {
         for (final Expr<TExpr> test : language.tests) {
             test(test.parsed, test.answer, test.unparsed);
             if (testParsing) {
                 test(parse(test.unparsed), test.answer, test.unparsed);
-                test(parse(language.addSpaces(test.unparsed, random)), test.answer, test.unparsed);
+                test(parse(addSpaces(test.unparsed, random)), test.answer, test.unparsed);
             }
         }
 
@@ -75,7 +93,7 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
             engine.parse(test.parsed);
             evaluate(vars, answer, EPS);
             test(test.parsed, test.unparsed);
-            test(language.addSpaces(test.parsed, random), test.unparsed);
+            test(addSpaces(test.parsed, random), test.unparsed);
             if (testParsing) {
                 counter.nextTest();
                 final String expr = parse(test.unparsed);
@@ -91,7 +109,7 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
     protected void evaluate(final double[] vars, final double answer, final double precision) {
         counter.nextTest();
         final Engine.Result<Number> result = engine.evaluate(vars);
-        assertEquals(result.context, precision, result.value.doubleValue(), answer);
+        assertEquals(result.context, precision, answer, result.value.doubleValue());
         counter.passed();
     }
 
@@ -124,7 +142,7 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
         int arity();
     }
 
-    public static class Dialect implements Cloneable {
+    public static class Dialect {
         private final String variable;
         private final String constant;
         private final BiFunction<String, List<String>, String> nary;
@@ -158,12 +176,11 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
             return nary.apply(operations.getOrDefault(name, name), as);
         }
 
-        public String nullary(final String name) {
+        public static String nullary(final String name) {
             return name;
         }
 
-        @Override
-        public Dialect clone() {
+        public Dialect copy() {
             return new Dialect(variable, constant, nary, new HashMap<>(operations));
         }
     }
@@ -177,14 +194,6 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
             this.parsed = Objects.requireNonNull(parsed);
             this.unparsed = Objects.requireNonNull(unparsed);
             this.answer = answer;
-        }
-
-        public <R> Expr<R> map(final Function<T, R> f) {
-            return set(f.apply(answer));
-        }
-
-        public <R> Expr<R> set(final R answer) {
-            return new Expr<>(parsed, unparsed, answer);
         }
     }
 }

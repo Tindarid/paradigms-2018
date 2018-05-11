@@ -4,7 +4,7 @@ package jstest;
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  */
 public class ObjectPowLogTest extends ObjectExpressionTest {
-    public static final Dialect POW_LOG_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.clone()
+    public static final Dialect POW_LOG_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.copy()
             .rename("pow", "Power")
             .rename("log", "Log");
 

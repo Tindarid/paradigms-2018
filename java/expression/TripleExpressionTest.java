@@ -30,12 +30,12 @@ public class TripleExpressionTest extends ExpressionTest {
         );
     }
 
-    private void testExpression(final String description, final TripleExpression actual, final TripleExpression expected) {
+    private static void testExpression(final String description, final TripleExpression actual, final TripleExpression expected) {
         System.out.println("Testing " + description);
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 for (int k = 0; k < 10; k++) {
-                    assertEquals(String.format("f(%d, %d, %d)", i, j, k), actual.evaluate(i, j, k), expected.evaluate(i, j, k));
+                    assertEquals(String.format("f(%d, %d, %d)", i, j, k), expected.evaluate(i, j, k), actual.evaluate(i, j, k));
                 }
             }
         }

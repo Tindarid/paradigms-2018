@@ -49,7 +49,7 @@ public class GenericUlsTest extends GenericTest {
         );
     }
 
-    protected short s(final int x) {
+    protected static short s(final int x) {
         return (short) x;
     }
 

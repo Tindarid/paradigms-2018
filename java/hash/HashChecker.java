@@ -29,9 +29,9 @@ public class HashChecker extends MainChecker {
         checkEquals(Arrays.stream(tests).map(Triple::third).collect(Collectors.toList()), run(input));
     }
 
-    protected void writeFiles(final Triple<String, String, String>[] tests) throws IOException {
+    protected static void writeFiles(final Triple<String, String, String>[] tests) throws IOException {
         for (final Triple<String, String, String> test : tests) {
-            write(test.first, test.second);
+            write(test.first(), test.second());
         }
     }
 
@@ -56,7 +56,7 @@ public class HashChecker extends MainChecker {
             randoms.add(Triple.of("__test__random" + i, randomString(i), random[j]));
         }
         @SuppressWarnings("unchecked")
-        final Triple<String, String, String>[] randomTriples = randoms.stream().toArray(Triple[]::new);
+        final Triple<String, String, String>[] randomTriples = randoms.toArray(new Triple[0]);
         test("__test__random", randomTriples);
         return this;
     }

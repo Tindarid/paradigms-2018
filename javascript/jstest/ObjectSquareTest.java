@@ -4,7 +4,7 @@ package jstest;
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  */
 public class ObjectSquareTest extends ObjectExpressionTest {
-    public static final Dialect SQUARE_SQRT_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.clone()
+    public static final Dialect SQUARE_SQRT_OBJECT = ObjectExpressionTest.ARITHMETIC_OBJECT.copy()
             .rename("square", "Square")
             .rename("sqrt", "Sqrt");
 

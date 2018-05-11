@@ -43,7 +43,7 @@ function dumpObject(name, o) {
     println(name);
     for (var attribute in o) {
         if (typeof(o[attribute]) === "function") {
-            if (o[attribute].length == 0) {
+            if (o[attribute].length === 0) {
                 println("    " + attribute + "() -> " + o[attribute]());
             } else {
                 println("    " + attribute + "(...)");

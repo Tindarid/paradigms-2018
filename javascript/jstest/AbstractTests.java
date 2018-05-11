@@ -114,10 +114,10 @@ public abstract class AbstractTests implements Cloneable {
     }
 
     protected AbstractExpression n(final String name) {
-        return (parsed, unparsed) -> expr(parsed.nullary(name), unparsed.nullary(name), nullary.get(name));
+        return (parsed, unparsed) -> expr(Dialect.nullary(name), Dialect.nullary(name), nullary.get(name));
     }
 
-    protected AbstractExpression c(final int value) {
+    protected static AbstractExpression c(final int value) {
         return (parsed, unparsed) -> expr(parsed.constant(value), unparsed.constant(value), vars -> value);
     }
 

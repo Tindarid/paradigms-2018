@@ -74,7 +74,7 @@ public class GenericTest extends BaseTest {
         return BigInteger.valueOf(v);
     }
 
-    protected Integer i(final long x) {
+    protected static Integer i(final long x) {
         return Integer.MIN_VALUE <= x && x <= Integer.MAX_VALUE ? (int) x : null;
     }
 

@@ -31,7 +31,7 @@ public class DoubleExpressionTest extends ExpressionTest {
         testExpression("x/x", new Divide(new Variable("x"), new Variable("x")), x -> x / x);
     }
 
-    private void testExpression(final String description, final DoubleExpression actual, final DoubleExpression expected) {
+    private static void testExpression(final String description, final DoubleExpression actual, final DoubleExpression expected) {
         System.out.println("Testing " + description);
         for (int i = 0; i < 10; i++) {
             check(i, actual, expected);
@@ -39,7 +39,7 @@ public class DoubleExpressionTest extends ExpressionTest {
         }
     }
 
-    private void check(final int x, final DoubleExpression actual, final DoubleExpression expected) {
-        assertEquals(String.format("f(%d)", x), actual.evaluate(x), expected.evaluate(x));
+    private static void check(final int x, final DoubleExpression actual, final DoubleExpression expected) {
+        assertEquals(String.format("f(%d)", x), expected.evaluate(x), actual.evaluate(x));
     }
 }

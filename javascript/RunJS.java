@@ -13,11 +13,11 @@ public class RunJS {
             this.engine = engine;
         }
 
-        public void print(final String message) {
+        public static void print(final String message) {
             System.out.print(message);
         }
 
-        public void println(final String message) {
+        public static void println(final String message) {
             System.out.println(message);
         }
 

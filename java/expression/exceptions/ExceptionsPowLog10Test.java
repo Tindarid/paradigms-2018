@@ -9,8 +9,8 @@ public class ExceptionsPowLog10Test extends ExceptionsTest {
     public static final Reason NEG_LOG = new Reason("Logarithm of negative value");
 
     protected ExceptionsPowLog10Test() {
-        unary.add(op("log10", this::log10));
-        unary.add(op("pow10", this::pow10));
+        unary.add(op("log10", ExceptionsPowLog10Test::log10));
+        unary.add(op("pow10", ExceptionsPowLog10Test::pow10));
 
         tests.addAll(Arrays.asList(
                 op("log10 11", (x, y, z) -> 1),
@@ -29,11 +29,11 @@ public class ExceptionsPowLog10Test extends ExceptionsTest {
         ));
     }
 
-    private long pow10(final long a) {
+    private static long pow10(final long a) {
         return 0 <= a && a <= 9 ? (long) Math.pow(10, a) : error(OVERFLOW);
     }
 
-    private long log10(final long a) {
+    private static long log10(final long a) {
         return a <= 0 ? error(NEG_LOG) : (long) Math.log10(a);
     }
 

@@ -33,12 +33,12 @@ public class ExpressionTest extends BaseTest {
         System.out.println("Testing " + description);
         for (int i = 0; i < 10; i++) {
             counter.nextTest();
-            assertEquals(String.format("f(%d)", i), evaluate(actual, i), evaluate(expected, i));
+            assertEquals(String.format("f(%d)", i), evaluate(expected, i), evaluate(actual, i));
             counter.passed();
         }
     }
 
-    private Integer evaluate(final Expression expression, final int x) {
+    private static Integer evaluate(final Expression expression, final int x) {
         try {
             return expression.evaluate(x);
         } catch (final ArithmeticException e) {

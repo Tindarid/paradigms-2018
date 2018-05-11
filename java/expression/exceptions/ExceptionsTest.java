@@ -64,7 +64,7 @@ public class ExceptionsTest extends ParserTest {
         }
     }
 
-    protected void testOverflow() {
+    protected static void testOverflow() {
         testOverflow((a, b) -> a + b, "+", new CheckedAdd(VX, VY));
         testOverflow((a, b) -> a - b, "-", new CheckedSubtract(VX, VY));
         testOverflow((a, b) -> a * b, "*", new CheckedMultiply(VX, VY));
@@ -72,7 +72,7 @@ public class ExceptionsTest extends ParserTest {
         testOverflow((a, b) -> -b, "<- ignore first argument, unary -", new CheckedNegate(VY));
     }
 
-    protected void testOverflow(final LongBinaryOperator f, final String op, final TripleExpression expression) {
+    protected static void testOverflow(final LongBinaryOperator f, final String op, final TripleExpression expression) {
         for (final int a : OVERFLOW_VALUES) {
             for (final int b : OVERFLOW_VALUES) {
                 final long expected = f.applyAsLong(a, b);

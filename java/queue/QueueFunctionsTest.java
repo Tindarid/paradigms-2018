@@ -35,11 +35,11 @@ public class QueueFunctionsTest extends QueueTest<QueueFunctionsTest.QueueFuncti
         }
     }
 
-    private void assertEquals(final String message, final Stream<Object> expected, final Queue actual) {
+    private static void assertEquals(final String message, final Stream<Object> expected, final Queue actual) {
         assertEquals(message, Arrays.asList(expected.toArray()), Arrays.asList(toArray(actual)));
     }
 
-    private Object[] toArray(final Queue queue) {
+    private static Object[] toArray(final Queue queue) {
         final Object[] result = new Object[queue.size()];
         for (int i = 0; i < result.length; i++) {
             result[i] = queue.dequeue();

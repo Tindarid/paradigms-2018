@@ -13,7 +13,7 @@ public class FunctionalExpressionTest extends BaseJavascriptTest<Engine> {
             "cnst(%s)",
             (op, args) -> op + "(" + String.join(", ", args) + ")"
     );
-    public static final Dialect ARITHMETIC_FUNCTIONS = PURE_FUNCTIONS.clone()
+    public static final Dialect ARITHMETIC_FUNCTIONS = PURE_FUNCTIONS.copy()
             .rename("+", "add")
             .rename("-", "subtract")
             .rename("/", "divide")

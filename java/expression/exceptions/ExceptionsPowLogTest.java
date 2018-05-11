@@ -11,8 +11,8 @@ public class ExceptionsPowLogTest extends ExceptionsTest {
 
     protected ExceptionsPowLogTest() {
         levels.add(list(
-                op("**", this::power),
-                op("//", this::log)
+                op("**", ExceptionsPowLogTest::power),
+                op("//", ExceptionsPowLogTest::log)
         ));
 
         tests.addAll(Arrays.asList(
@@ -27,7 +27,7 @@ public class ExceptionsPowLogTest extends ExceptionsTest {
         ));
     }
 
-    private long log(final long a, final long b) {
+    private static long log(final long a, final long b) {
         try {
             final double result = Math.log(a) / Math.log(b);
             return a > 0 && b > 0 && result == result ? (long) result : error(LOG);
@@ -36,7 +36,7 @@ public class ExceptionsPowLogTest extends ExceptionsTest {
         }
     }
 
-    private long power(final long a, long b) {
+    private static long power(final long a, long b) {
         if (b < 0 || a == 0 && b == 0) {
             return error(POWER);
         }

@@ -12,7 +12,7 @@ import static jstest.FunctionalExpressionTest.POLISH;
  */
 public class ObjectExpressionTest extends BaseJavascriptTest<JSEngine> {
     public static final int MIN = 2;
-    public final double D = 1e-4;
+    public static final double D = 1e-4;
 
 
     public static final Dialect PURE_OBJECT = dialect(
@@ -20,7 +20,7 @@ public class ObjectExpressionTest extends BaseJavascriptTest<JSEngine> {
             "new Const(%s)",
             (op, args) -> "new " + op + "(" + String.join(", ", args) + ")"
     );
-    public static final Dialect ARITHMETIC_OBJECT = PURE_OBJECT.clone()
+    public static final Dialect ARITHMETIC_OBJECT = PURE_OBJECT.copy()
             .rename("+", "Add")
             .rename("-", "Subtract")
             .rename("*", "Multiply")
@@ -110,14 +110,14 @@ public class ObjectExpressionTest extends BaseJavascriptTest<JSEngine> {
         counter.nextTest();
         testToString(parsed, unparsed);
 
-        testToString(language.addSpaces(parsed, random), unparsed);
+        testToString(BaseJavascriptTest.addSpaces(parsed, random), unparsed);
         counter.passed();
     }
 
     private void testToString(final String expression, final String expected) {
         engine.parse(expression);
         final Engine.Result<String> result = engine.parsedToString();
-        assertEquals(result.context, result.value, expected);
+        assertEquals(result.context, expected, result.value);
     }
 
     public static void main(final String... args) {

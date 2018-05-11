@@ -45,7 +45,7 @@ public class PrefixParserTest extends ObjectExpressionTest {
         }
     }
 
-    private String removeSpaces(final String expression) {
+    private static String removeSpaces(final String expression) {
         return expression.replace(" (", "(").replace(") ", ")");
     }
 

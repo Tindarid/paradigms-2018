@@ -66,7 +66,7 @@ public class JSEngine implements Engine {
                 throw new EngineException("Result is null", null);
             }
             if (token.isAssignableFrom(result.getClass())) {
-                return new Result<T>(context, token.cast(result));
+                return new Result<>(context, token.cast(result));
             }
             throw new EngineException(String.format(
                     "Expected %s, found \"%s\" (%s)%s",
@@ -90,7 +90,6 @@ public class JSEngine implements Engine {
         return evaluate(code, Number.class);
     }
 
-    @Override
     public Result<String> parsedToString() {
         return evaluate("expr." + toStringMethod + "()", String.class);
     }
@@ -101,11 +100,11 @@ public class JSEngine implements Engine {
             this.engine = engine;
         }
 
-        public void print(final String message) {
+        public static void print(final String message) {
             System.out.print(message);
         }
 
-        public void println(final String message) {
+        public static void println(final String message) {
             System.out.println(message);
         }
 
