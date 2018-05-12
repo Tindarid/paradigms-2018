@@ -1,5 +1,6 @@
 (chapter "Lists")
 
+(section "Definition and tests")
 (example "Lists"
          (list 1 2)
          (list 1 2 "Hello" 3 4)
@@ -36,7 +37,6 @@
          (empty? lst))
 
 (section "Folds")
-
 (example "Left fold"
          (defn foldLeft
            "Applies a binary operator f to a zero value and all elements of the list, going left to right"
@@ -45,7 +45,6 @@
              zero
              (foldLeft (f zero (first items)) f (rest items))))
          (foldLeft 0 + (list 1 2 3 4)))
-
 (example "Right fold"
          (defn foldRight [zero f items]
            "Applies a binary operator f to a zero value and all elements of the list, going right to left"
@@ -54,7 +53,6 @@
              (f (first items) (foldRight zero f (rest items)))))
 
          (foldRight 1 * (list 1 2 3 4)))
-
 (example "Tail-call optimised left fold"
          (defn foldLeft' [zero f items]
            (if (empty? items)

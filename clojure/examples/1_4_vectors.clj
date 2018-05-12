@@ -1,5 +1,4 @@
 (chapter "Vectors")
-
 (example "Vectors"
          (vector 1 2)
          (vector 1 2 "Hello" 3 4)

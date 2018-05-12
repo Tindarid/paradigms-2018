@@ -17,7 +17,6 @@
          ((twice square) 3))
 
 (section "Recursive Functions")
-
 (example "Recursive Fibonacci"
          (defn rec-fib [n]
            (cond
@@ -25,7 +24,6 @@
              (== 1 n) 1
              :else (+ (rec-fib (- n 1)) (rec-fib (- n 2)))))
          (rec-fib 40))
-
 (example "Memoized Fibonacci"
          (def mem-fib
            (memoize
@@ -35,7 +33,6 @@
                  (== 1 n) 1
                  :else (+ (mem-fib (- n 1)) (mem-fib (- n 2)))))))
          (mem-fib 90))
-
 (example "Tail-recursive Fibonacci"
          (defn iter-fib [n]
            (letfn [(iter-fib' [n a b]
@@ -44,7 +41,6 @@
                        (iter-fib' (- n 1) b (+' a b))))]
              (iter-fib' n 1 1)))
          (iter-fib 90))
-
 (example "Explicit loop Fibonacci"
          (defn loop-fib [n]
            (loop [n n a 1 b 1]
@@ -69,7 +65,6 @@
          (power 0 2))
 (example "Precondition violated"
          (power 2 -5))
-
 (example "Invalid postcondition"
          (defn ipower
            [a b]
