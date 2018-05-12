@@ -57,15 +57,10 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
 
     protected abstract String parse(final String expression);
 
-    protected void test(final String expression, final TExpr f, final String polish) {
+    protected void test(final String expression, final TExpr f, final String unparsed) {
         System.out.println("Testing: " + expression);
-        test(expression, polish);
 
         engine.parse(expression);
-        test(f);
-    }
-
-    protected void test(final TExpr f) {
         for (double i = 0; i <= N; i += 1) {
             for (double j = 0; j <= N; j += 1) {
                 for (double k = 0; k <= N; k += 1) {
@@ -74,6 +69,8 @@ public abstract class BaseJavascriptTest<E extends Engine> extends BaseTest {
                 }
             }
         }
+
+        test(expression, unparsed);
     }
 
     protected void test(final String parsed, final String unparsed) {
