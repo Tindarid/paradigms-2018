@@ -10,6 +10,10 @@
          (type (symbol "x"))
          (= (symbol "x") 'x)
          (= "x" (str (symbol "x"))))
+(example "Eval"
+         (def x 10)
+         (def y 20)
+         (eval expr))
 (example "Java functions"
          (java.lang.Math/abs -10)
          (Math/abs -10))
