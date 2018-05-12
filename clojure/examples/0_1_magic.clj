@@ -16,14 +16,28 @@
 
 (defn safe-eval [expression]
   (try
-    (str (eval expression))
+    (eval expression)
     (catch Throwable e (str (.getSimpleName (type e)) ": " (.getMessage e)))))
 
-(defn example' [prefix & expressions]
-  (letfn [(out [expression]
-            (str expression " -> " (safe-eval expression)))]
-    (println (clojure.string/join "\n        " (cons (str "    " prefix) (map out expressions))))))
+(defmacro with-out-str-and-value [& body]
+  `(let [s# (new java.io.StringWriter)]
+     (binding [*out* s#]
+       (let [v# ~@body]
+         (vector (str s#) v#)))))
 
-(defn example [description & expressions]
+(defn example' [description & expressions]
   {:pre [(not (empty? expressions))]}
-  (apply example' (cons (str description ": ") expressions)))
+  (println (str "    " description ": "))
+  (letfn [(run [expression]
+            (let [[output value] (with-out-str-and-value
+                                   (safe-eval expression))]
+              (println "      " (pr-str expression) "->" value)
+              (if (not (empty? output))
+                (mapv #(println "            >" %) (clojure.string/split-lines output)))))]
+    (mapv run expressions)))
+
+(defmacro example [description & expressions]
+  `(apply example' ~description (quote ~expressions)))
+
+(defn with-in-file [file action]
+  (with-in-str (slurp file) (action)))
