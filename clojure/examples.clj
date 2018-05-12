@@ -2,7 +2,7 @@
 
 ; Insert your code here
 
-(lecture "1. Introduction")
+(lecture "1. Functions")
 (load-file "examples/1_1_intro.clj")
 (load-file "examples/1_2_functions.clj")
 (load-file "examples/1_3_lists.clj")

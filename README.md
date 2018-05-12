@@ -68,7 +68,7 @@
 
 [Скрипт со всеми примерами](clojure/examples.clj)
 
-Лекция 1. Введение
+Лекция 1. Функции
  * [Введение](clojure/examples/1_1_intro.clj)
  * [Функции](clojure/examples/1_2_functions.clj)
  * [Списки](clojure/examples/1_3_lists.clj)
