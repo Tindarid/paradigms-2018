@@ -3,6 +3,15 @@
 [Условия домашних заданий](http://www.kgeorgiy.info/courses/paradigms/homeworks.html)
 
 
+## Домашнее задание 13. Функциональные выражения на Clojure
+
+Модификации
+ * *Базовая*
+    * Код должен находиться в файле `expression.clj`.
+    * [Исходный код тестов](clojure/cljtest/functional/ClojureFunctionalExpressionTest.java)
+        * Запускать c аргументом `easy` или `hard`
+
+
 ## Домашнее задание 12. Линейная алгебра на Clojure
 
 Модификации
@@ -67,7 +76,7 @@
  * [Функции высшего порядка](clojure/examples/1_5_functions-2.clj)
 
 Лекция 2. Внешний мир
- * [Отображения](clojure/examples/2_1_io.clj)
+ * [Ввод-вывод](clojure/examples/2_1_io.clj)
  * [Разбор и гомоиконность](clojure/examples/2_2_read.clj)
  * [Порядки вычислений](clojure/examples/2_3_evaluation-orders.clj)
  * [Потоки](clojure/examples/2_4_streams.clj)
