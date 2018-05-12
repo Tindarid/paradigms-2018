@@ -8,4 +8,4 @@ var println = print;
 var include = load;
 var global = this;
 
-include("script.js");
+include("examples.js");

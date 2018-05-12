@@ -19,4 +19,4 @@ var context = {
 };
 context.global = context;
 
-context.include("script.js");
+context.include("examples.js");
