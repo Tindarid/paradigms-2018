@@ -13,12 +13,18 @@
            (+ a b))
          (add-app (trace 1) (trace 2))
          (let [v (trace 2)] (add-app v v)))
-(example "Normal evaluation order"
-         (defn add-norm [x y]
+(example "Normal evaluation (eval-based)"
+         (defn add-norm-eval [x y]
            (indented "evaluate f")
            (+ (eval x) (eval y)))
-         (add-norm '(trace 1) '(trace 2))
-         (let [v '(trace 2)] (add-norm v v)))
+         (add-norm-eval '(trace 1) '(trace 2))
+         (let [v '(trace 2)] (add-norm-eval v v)))
+(example "Normal evaluation order (lambda-based)"
+         (defn add-norm-lambda [x y]
+           (indented "evaluate f")
+           (+ (x) (y)))
+         (add-norm-lambda #(trace 1) #(trace 2))
+         (let [v #(trace 2)] (add-norm-lambda v v)))
 (example "Lazy evaluation order"
          (defn add-lazy [x y]
            (indented "evaluate f")
