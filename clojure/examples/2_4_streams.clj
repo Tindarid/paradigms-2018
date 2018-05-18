@@ -98,3 +98,20 @@
                    (prs [] (cons 2 (filter prime? (lazy-integers 3))))]
              (prs)))
          (lazy-sample lazy-primes))
+(example "Lazy input"
+         (defn lazy-input []
+           (lazy-seq
+             (let [line (read-line)]
+               (if (not (empty? line))
+                 (cons line (lazy-input))))))
+         (defn with-lazy-input [init f]
+           (fn [] (reduce f init (lazy-input)))))
+(example "Running sum with lazy input"
+         (def running-sum
+           (with-lazy-input 0
+                            (fn [sum line]
+                              (let [sum' (+ sum (read-string line))]
+                                (do
+                                  (println sum')
+                                  sum')))))
+         (with-in-file "data/sum.in" running-sum))
